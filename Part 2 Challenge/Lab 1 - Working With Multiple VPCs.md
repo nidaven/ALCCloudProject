@@ -308,3 +308,5 @@ export PROJECT_ID=$(gcloud info --format='value(config.project)')
     ```bash
     ip route
     ```
+
+In this lab, we successfully created tow custom-mode networks **Privatenet** and **managementnet**. We created firewall rules in each of these networks as well as VM instances. We explored connectivity between the instances in these different networks by pinging both their internal and external IP addresses. We saw that we couldnt achieve connectivity to an instance in another network through its internal IP address, but we connect through its external IP address as it is routed through the internet. Lastly we created a VM instance with multiple interface, this allows us to connect or ping the instances in different networks through their internal IP addresses.
