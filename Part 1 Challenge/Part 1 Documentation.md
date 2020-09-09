@@ -1,10 +1,5 @@
 # Part 1 Documentation
 
-//TODO Add Document Overview
-//TODO List lab outlines
-//TODO Link images from folders
-//TODO Test update
-
 - [Part 1 Documentation](#part-1-documentation)
   - [1. Automating the Deployment of Infrastructure Using Deployment Manager](#1-automating-the-deployment-of-infrastructure-using-deployment-manager)
   - [2. Automating the Deployment of Infrastructure Using Terraform](#2-automating-the-deployment-of-infrastructure-using-terraform)

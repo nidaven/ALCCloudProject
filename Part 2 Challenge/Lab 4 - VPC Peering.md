@@ -31,7 +31,6 @@ export PROJECT_ID=$(gcloud info --format='value(config.project)')
 
 ## Task 1 - Explore connectivity between non-peered VPC networks
 
-//TODO Code section to test connectivity between non-peered VPC networks
 Three networks have been created automatically for you in this lab. **mynetwork**, **privatenet** and **managementnet**, along with their respective firewall rules to allow ICMP, SSH, and RDP traffic. Additionally, four VM instances have been created **mynet-eu-vm**, **mynet-us-vm**, **privatenet-us-vm** and **managementnet-us-vm**.
 
 Let's examine the created instances
