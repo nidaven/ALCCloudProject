@@ -6,7 +6,7 @@
   - [Task 2 - Create the HTTP load balancer with Cloud CDN](#task-2---create-the-http-load-balancer-with-cloud-cdn)
   - [Task 3 - Verify the caching of your bucket's content](#task-3---verify-the-caching-of-your-buckets-content)
     - [Invalidating the cache](#invalidating-the-cache)
-  - [Review](#review)
+  - [Summary](#summary)
 
 ## Overview
 
@@ -127,7 +127,7 @@ gcloud compute url-maps invalidate-cdn-cache cdn-lb \
 
 This command takes a while to run as it propages globally to all regions
 
-## Review
+## Summary
 
 In this lab, you configured Cloud CDN for a backend bucket by configuring an HTTP load balancer and enabling Cloud CDN with a simple checkbox. You verified the caching of the bucket's content by measuring the time it takes to access the image. The first time you accessed the image, it took longer because the cache of the edge location did not contain the image yet. All other requests were quicker because the image was provided from the cache of the edge location closest to your Cloud Shell instance.
 

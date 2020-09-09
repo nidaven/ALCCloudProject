@@ -233,60 +233,65 @@ A managed instance group uses create instance templates to create a group of ide
 
 ## Task 5 - Test the HTTP load balancer
 
-* [ ] Code to stress test the HTTP load balancer
+Test the capabilities of the load balancer by simulating a Denial of Service on the instance.
 
-    ```bash
-    gcloud compute instances create siege-vm \
-    --zone=us-west1-c
-    ```
+```bash
+gcloud compute instances create siege-vm \
+--zone=us-west1-c
+```
 
-    Set the environment variable for *PROJECT_ID*
+Set the environment variable for *PROJECT_ID*
 
-    ```bash
-    export PROJECT_ID=$(gcloud info --format='value(config.project)')
-    ```
+```bash
+export PROJECT_ID=$(gcloud info --format='value(config.project)')
+```
 
-    ```bash
-    gcloud compute ssh --project $PROJECT_ID --zone=us-west1-c siege-vm
-    ```
+```bash
+gcloud compute ssh --project $PROJECT_ID --zone=us-west1-c siege-vm
+```
 
-    Leave the fields blank and press **Enter** through the series of prompts
+Leave the fields blank and press **Enter** through the series of prompts
 
-    Install the **siege** package to stress test the backend service
+Install the **siege** package to stress test the backend service
 
-    ```bash
-    export LB_IP=<IPv4 address of the load balancer>
-    ```
+```bash
+export LB_IP=<IPv4 address of the load balancer>
+```
 
-    ```bash
-    echo $LB_IP
-    ```
+```bash
+echo $LB_IP
+```
 
-    ```bash
-    siege -c 250 http://$LB_IP
-    ```
+```bash
+siege -c 250 http://$LB_IP
+```
 
-    Go to the cloud console's **Navigation Menu**, **Network Services** > **Load Balancing**. Click **Backends** > **http-backend**
+Go to the cloud console's **Navigation Menu**, **Network Services** > **Load Balancing**. Click **Backends** > **http-backend**
 
-    Monitor the total inbound traffic between North America and the two backends for 2-3 minutes.
+Monitor the total inbound traffic between North America and the two backends for 2-3 minutes.
 
-    Go back to the **siege-vm** SSH session and stop the siege through `ctrl+c`
+Go back to the **siege-vm** SSH session and stop the siege through `ctrl+c`
 
 ## Task 6 - Deny the **siege-vm**
 
-  * [ ] code section to extract the siege-vm IP to an environment variable named SIEGE_IP.
+Enable Cloud armor security policy
 
-    ```bash
-    gcloud compute security-policies create deny-siege
+```bash
+export SIEGE_IP=$(gcloud compute instances describe siege-vm --zone=us-west1-c \
+--format='value(networkInterfaces.accessConfigs[0].natIP)')
+```
 
-    gcloud compute security-policies rules create 1000 \
-    --security-policy deny-siege \
-    --action=deny-403 \
-    --src-ip-ranges=$SIEGE_IP
-    ```
+```bash
+gcloud compute security-policies create deny-siege
 
-    ```bash
-    gcloud compute backend-services update http-backend \
-    --security-policy deny-siege \
-    --global
-    ```
+gcloud compute security-policies rules create 1000 \
+--security-policy deny-siege \
+--action=deny-403 \
+--src-ip-ranges=$SIEGE_IP
+```
+
+```bash
+gcloud compute backend-services update http-backend \
+--security-policy deny-siege \
+--global
+```
