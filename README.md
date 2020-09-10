@@ -17,4 +17,3 @@ This repository is in two parts.
     [Lab 3 - Caching Cloud Storage Content with Cloud CDN](Part%202%20Challenge/Lab%203%20-%20Caching%20Cloud%20Storage%20Content%20with%20Cloud%20CDN.md)
 
     [Lab 4 - VPC Peering](Part%202%20Challenge/Lab%204%20-%20VPC%20Peering.md)
-
