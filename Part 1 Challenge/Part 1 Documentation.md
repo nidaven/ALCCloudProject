@@ -13,6 +13,8 @@
   - [10. Getting Started with VPC Networking](#10-getting-started-with-vpc-networking)
   - [11. Working with JSON and Array Data in BigQuery](#11-working-with-json-and-array-data-in-bigquery)
   - [12. Working with Multiple VPC Networks](#12-working-with-multiple-vpc-networks)
+  - [13. Building and Executing a Data Pipeline Graph with Data Fusion](#13-building-and-executing-a-data-pipeline-graph-with-data-fusion)
+  - [14 An Introduction to Cloud Composer](#14-an-introduction-to-cloud-composer)
 
 ## 1. Automating the Deployment of Infrastructure Using Deployment Manager
 
@@ -61,3 +63,13 @@
 ## 12. Working with Multiple VPC Networks
 
 ![Working with Multiple VPC Networks](images/Working%20with%20Multiple%20VPC%20Networks.png)
+
+## 13. Building and Executing a Data Pipeline Graph with Data Fusion
+
+![Building and Executing a Data Pipeline Graph with Data Fusion](images/Building%20and%20Executing%20a%20Pipeline%20Graph%20with%20Data%20Fusion.png)
+
+## 14 An Introduction to Cloud Composer
+
+![An Introduction to Cloud Composer](images/An%20Introduction%20to%20Cloud%20Composer.png)
+
+
